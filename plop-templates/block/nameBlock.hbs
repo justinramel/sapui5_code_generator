@@ -1,0 +1,26 @@
+sap.ui.define([
+	"sap/uxap/BlockBase"
+], function(BlockBase) {
+	"use strict";
+	return BlockBase.extend("{{namespace}}.blocks.{{lowerCase name}}.{{name}}Block", {
+		metadata: {
+			views: {
+				Collapsed: {
+					viewName: "{{namespace}}.blocks.{{lowerCase name}}.{{name}}",
+					type: "XML"
+				},
+				Expanded: {
+					viewName: "{{namespace}}.blocks.{{lowerCase name}}.{{name}}",
+					type: "XML"
+				}
+			},
+			properties: {
+				"columnLayout": {
+					type: "sap.uxap.BlockBaseColumnLayout",
+					group: "Behavior",
+					defaultValue: "2"
+				}
+			}
+		}
+	});
+});

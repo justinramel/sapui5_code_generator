@@ -1,0 +1,23 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page title="{i18n>{{upperCase name}}_EDIT}">
+		<content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="1" emptySpanM="1" id="idEditHeaderForm"
+				labelSpanL="4" labelSpanM="4" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="">
+				<f:content>
+					<core:Title text="{i18n>{{upperCase name}}_TITLE}" />
+					<Label text="{i18n>{{upperCase name}}_NAME}" required="true"/>
+					<Input id="name" value="{/name}" liveChange="onChangeValidation"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<footer>
+			<Toolbar>
+				<Button id="messagePopoverButton" visible="{:= ${validation>/numberOfMessages} > 0}" icon="sap-icon://message-popup"
+					text="{validation>/numberOfMessages}" type="Emphasized" press="onMessagePopoverPress" class="push-left"/>
+				<ToolbarSpacer/>
+				<Button text="Save" press="onSaveButtonPress"/>
+				<Button text="Cancel" press="onCancelButtonPress"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

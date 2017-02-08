@@ -1,0 +1,21 @@
+{
+  "name": "sapui5_code_generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "plopfile.js",
+  "dependencies": {
+    "plop": "^1.7.4"
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:justinramel/sapui5_code_generator.git"
+  },
+  "author": "Justin Ramel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justinramel/sapui5_code_generator/issues"
+  },
+  "homepage": "https://github.com/justinramel/sapui5_code_generator#readme"
+}

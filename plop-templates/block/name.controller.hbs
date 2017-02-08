@@ -1,0 +1,29 @@
+sap.ui.define([
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel",
+	"{{dotsToSlashes namespace}}/util/UIHelper",
+	"{{dotsToSlashes namespace}}/blocks/{{lowerCase name}}/Edit{{name}}.controller",
+	"{{dotsToSlashes namespace}}/blocks/{{lowerCase name}}/Edit{{name}}Validation"
+], function(Controller, JSONModel, UIHelper, Edit{{name}}Controller, Edit{{name}}Validation) {
+	"use strict";
+	return Controller.extend("{{namespace}}.blocks.{{lowerCase name}}.{{name}}", {
+		onInit: function(oEvent) {
+			var sJSON = jQuery.sap.getModulePath("{{namespace}}", "/blocks/{{lowerCase name}}/{{name}}Model.json"),
+				oModel = new JSONModel(sJSON);
+			this.getView().setModel(oModel);
+		},
+
+		onEditPress: function(oEvent) {
+			var oController = new Edit{{name}}Controller(),
+				oModel = this.getView().getModel(),
+				oView = UIHelper.initView({
+					pageId: "Edit{{name}}",
+					viewName: "{{namespace}}.blocks.{{lowerCase name}}.Edit{{name}}",
+					controller: oController,
+					model: oModel,
+					validation: Edit{{name}}Validation
+				});
+			UIHelper.openView(oView);
+		}
+	});
+});

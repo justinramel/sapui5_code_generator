@@ -1,0 +1,38 @@
+sap.ui.define([
+	"sap/ui/core/mvc/Controller",
+	"{{dotsToSlashes namespace}}/util/UIHelper"
+], function(Controller, UIHelper) {
+	"use strict";
+	return Controller.extend("{{namespace}}.blocks.{{lowerCase name}}.Edit{{name}}", {
+		onOpen: function(oView) {
+			UIHelper.backupModel(oView);
+		},
+
+		onMessagePopoverPress: function(oEvent) {
+			this.ValidationHelper.toggleValidationErrors();
+		},
+
+		onSaveButtonPress: function(oEvent) {
+			if (this.ValidationHelper.hasErrors()) {
+				this.ValidationHelper.showValidationErrors();
+			} else {
+				this.updateServer();
+				UIHelper.getApp().back();
+			}
+		},
+
+		onCancelButtonPress: function(oEvent) {
+			UIHelper.restoreModel(this.getView());
+			this.ValidationHelper.clearValidationErrors();
+			UIHelper.getApp().back();
+		},
+
+		onChangeValidation: function(oEvent) {
+			this.ValidationHelper.onChangeValidation(oEvent);
+		},
+
+		updateServer: function() {
+			// save this.getView().getData() via oData service
+		}
+	});
+});
