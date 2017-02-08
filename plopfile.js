@@ -43,7 +43,7 @@ module.exports = function (plop) {
     }, {
       type: 'add',
       path: 'webapp/blocks/{{lowerCase name}}/Edit{{name}}Validation.js',
-      templateFile: 'plop-templates/block/EditnameValidation.js'
+      templateFile: 'plop-templates/block/EditnameValidation.hbs'
     }]
   })
 }
